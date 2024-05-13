@@ -1,5 +1,5 @@
 let displayArea = document.querySelector('.products-grid');
-
+let jsquan = document.querySelector(".js-quan");
 /*
 let prod_db = [{
     img_url : './Images/products/athletic-cotton-socks-6-pairs.jpg',
@@ -105,7 +105,15 @@ addCartButton.forEach( (value, index) => { // basically this button has all the 
           }
           cartArr.push(newObj);
         }
+
+      //cart quantity calculation
+      let quan = 0 ; 
+      cartArr.forEach( (item,index) => {
+        quan += item.quantity;
+      })
+      console.log(quan);
      console.log(cartArr);
+     jsquan.innerHTML = quan;
  //   cartArr.push(prod_db[index]);
  
    });
