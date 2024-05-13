@@ -1,7 +1,5 @@
-
 let displayArea = document.querySelector('.products-grid');
-let addCartButton = document.querySelectorAll(".addtocart-btn");
-let addedMessage = document.querySelector(".addedMsg");
+
 /*
 let prod_db = [{
     img_url : './Images/products/athletic-cotton-socks-6-pairs.jpg',
@@ -58,7 +56,7 @@ function generateHtml(arrayDatabase){
          <img src="./Images/ratings/rating-${value.rating.stars*10}.png">
          <p>${value.rating.count}</p>
        </div>
-       <p><b>$${value.priceCents/100}</b></p>
+       <p><b>$${(value.priceCents/100).toFixed(2)}</b></p>
 
        <select name="quantity-products" id="quantity-products">
          <option value="1">1</option>
@@ -74,12 +72,41 @@ function generateHtml(arrayDatabase){
        </select>
      </div>
      <p class="addedMsg"></p>
-     <div class="addtocart-div" onclick="addToCart()">
-       <button class="addtocart-btn">Add to Cart</button>
+     <div class="addtocart-div">
+       <button class="addtocart-btn" data-product-id="${value.id}">Add to Cart</button>
      </div>
   </div>`
   combinedHtml += singleHtml;
     });
     displayArea.innerHTML = combinedHtml;
 }
+let addedMessage = document.querySelector(".addedMsg");
+let addCartButton = document.querySelectorAll(".addtocart-btn");
 
+addCartButton.forEach( (value, index) => { // basically this button has all the buttons in an array
+   value.addEventListener('click', () => {
+    console.log(value.dataset.productId); // access the specific button by adding a data attribute to the button
+    let currentId = value.dataset.productId;
+    let currObj ;
+
+    cartArr.forEach( (itemObj)=> {
+          if(currentId === itemObj.id){
+            currObj = itemObj;
+          }
+        });
+        
+        if(currObj){
+           currObj.quantity += 1;
+        }
+        else{
+          let newObj = {
+            id: `${currentId}`,
+            quantity : 1
+          }
+          cartArr.push(newObj);
+        }
+     console.log(cartArr);
+ //   cartArr.push(prod_db[index]);
+ 
+   });
+});

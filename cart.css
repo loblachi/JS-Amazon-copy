@@ -15,9 +15,7 @@
     --col-faded-black: #787878;
     --col-faded-white: rgb(222, 222, 222);
 }
-.header-container{
-	background-color: ; 
-}
+
 .header{
 	width: 95%; 
 	max-width: 1100px; 
@@ -93,14 +91,11 @@
 	grid-gap: .75rem; 
 	grid-template-columns:1fr 350px;
 	align-items: start;
-	grid-template-areas: 
-	'item1 result'
-	'item2 result';
 }
 
 .item-1{
-	grid-area: item1;
 	border: 1px solid rgb(222, 222, 222); 
+	margin-bottom: .75em;
 }
 .delivery-date h1{
 	font-size: 1.1875rem;
@@ -179,18 +174,9 @@ input[type='radio'] {
 }
 
 
-
-
-
-
-
 /***********************************/
-.item-2{
-	grid-area: item2;
-	border: 1px solid rgb(222, 222, 222); 
-}
+
 .result{
-	grid-area: result;
 	border: 1px solid rgb(222, 222, 222); 
 }
 .res-h1{
@@ -243,7 +229,6 @@ input[type='radio'] {
 	background-color: goldenrod;
 }
 
-
 /******** media queries *********/
 
 @media (max-width: 1000px){
@@ -255,16 +240,10 @@ input[type='radio'] {
     	max-width: 500px;
     	order: 1;
     }
-    .item-1{
-    	width: 100%;
-    	max-width: 500px;
+    .left-part{
     	order: 2;
     }
-    .item-2{
-    	width: 100%;
-    	max-width: 500px;
-    	order: 3;
-    }
+    
     .main-d1{
     	width: 100%;
     	max-width: 500px;
@@ -272,7 +251,6 @@ input[type='radio'] {
     }
     .f-box{
 		display: flex; flex-direction: column; 
-		align-items:; 
 		font-size: 1rem; 
 		padding: .5em 0em;
 		row-gap: 1.5em; 
